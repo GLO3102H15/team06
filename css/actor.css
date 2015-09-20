@@ -1,7 +1,19 @@
-.actor-title{
-    padding-top:10px;
-    padding-bottom:2px;
-    text-align: center;
+.actor-title {
+    padding-top: 10px;
+    padding-bottom: 2px;
+}
+
+#actor-name {
+    float: left;
+}
+
+ #actor-genre {
+    float: right;
+}
+
+#actor-image{
+    margin-bottom:20px;
+    margin-top:20px;
 }
 
 #header{
