@@ -4,26 +4,29 @@
 }
 
 #actor-name {
-    float: left;
+    width: 49%;
+    text-align: left;
+    display: inline-block;
+}
+#actor-genre {
+    width: 49%;
+    text-align: right;
+    display: inline-block;
 }
 
- #actor-genre {
-    float: right;
+#actor-image {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-#actor-image{
-    margin-bottom:20px;
-    margin-top:20px;
-}
-
-#header{
-    margin-bottom:20px;
-    background-color:  #E74C3C;
+#header {
+    margin-bottom: 10px;
+    background-color: #E74C3C;
     border-radius: 0px 0px 6px 6px;
-    margin-top:-20px;
+    margin-top: -20px;
 }
 
-.movie-image{
+.movie-image {
     width: 100%;
     max-width: 200px;
     height: 200px;
@@ -31,16 +34,24 @@
     border: solid 1px #EFEFEF;
 }
 
-#movies-section{
+#movies-section {
+    margin-top: 10px;
     background: #E74C3C;
     padding-bottom: 20px;
 }
 
-#itunes-button{
-    display:inline-block;
-    overflow:hidden;
-    background:url(http://linkmaker.itunes.apple.com/images/badges/en-us/badge_itunes-lrg.svg) no-repeat;
-    width:110px;
-    height:40px;
+#movies-list {
+
+}
+
+#itunes-div{
+    text-align: center;
+}
+.itunes-button {
+    display: inline-block;
+    overflow: hidden;
+    background: url(http://linkmaker.itunes.apple.com/images/badges/en-us/badge_itunes-lrg.svg) no-repeat;
+    width: 110px;
+    height: 40px;
 }
 
