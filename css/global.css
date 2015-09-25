@@ -29,10 +29,14 @@
 }
 
 .shadowing{
-    box-shadow: 0 0 70px 15px;
+    box-shadow: 0 0 50px 5px;
 }
 
 .footer{
     padding-bottom: 30px;
     background: #2B2B2B;
+}
+
+.pointer{
+    cursor:pointer;
 }
