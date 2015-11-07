@@ -8,6 +8,10 @@
         padding-top: 0px;
     }
 
+    .nav-tabs{
+        padding-top:0;
+    }
+
     #info {
         height: 100%;
         position: fixed;
@@ -37,6 +41,11 @@
         top: 50%;
         transform: translateY(-50%);
         padding: 20px 40px;
+    }
+}
+@media (max-width: 992px) {
+    .nav-tabs {
+        padding-top: 25px;
     }
 }
 .media-info {

@@ -1,28 +1,18 @@
 .media-theme .trailer-background {
-    background: url(../Images/logoOpaque.gif) no-repeat center center;
     background-size: cover;
+    background-image:url(../Images/logoOpaque.gif);
     -webkit-background-size: cover;
 }
+@media(min-width:992px){
+    .media-theme .trailer-background {
+        background-size: cover;
+        background-color:#E74C3C;
+        -webkit-background-size: cover;
+        background-image:none;
+    }
+}
+
+
 .trailer-background {
     margin: 0;
-}
-
-.media-title {
-    color:black;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-}
-
-#movies-carousel{
-    margin-top: 5px;
-}
-#movies-carousel .item img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    max-height:550px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
 }
