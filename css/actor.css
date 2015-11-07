@@ -1,8 +1,18 @@
 .media-theme .trailer-background {
     background-size: cover;
-    background-color:#E74C3C;
+    background-image:url(../Images/logoOpaque.gif);
     -webkit-background-size: cover;
 }
+@media(min-width:992px){
+    .media-theme .trailer-background {
+        background-size: cover;
+        background-color:#E74C3C;
+        -webkit-background-size: cover;
+        background-image:none;
+    }
+}
+
+
 .trailer-background {
     margin: 0;
 }
