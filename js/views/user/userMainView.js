@@ -4,12 +4,18 @@ define([
     'backbone',
     'md5',
     'models/user',
+    'models/follow',
+    'models/tokenInfo',
+    'models/unfollow',
     'views/user/userWatchlistView',
-    'text!templates/user/userMainTemplate.html',
-], function($, _, Backbone, md5, User, UserWatchlistView, UserMainTemplate){
+    'text!templates/user/userMainTemplate.html'
+], function($, _, Backbone, md5, User, Follow,TokenInfo,Unfollow, UserWatchlistView, UserMainTemplate){
     var UserMainView = Backbone.View.extend({
         initialize: function(id){
             this.user = new User(id);
+            this.following = new Follow();
+            this.unfollowing = new Unfollow(id);
+            this.tokenInfo = new TokenInfo();
         },
         template : _.template(UserMainTemplate),
         el: '.content',
@@ -28,19 +34,36 @@ define([
                 },
                 success: function(response){
                     var user = response.toJSON();
-                    that.$el.html(that.template({user: user}));
 
-                    var avatar = that.getGravatar(user.email, 200);
-                    $(".avatar-img").css("background", "url("+ avatar+") center center no-repeat");
+                            that.$el.html(that.template({user: user, isFollowing : false}));
 
-                    user.following.forEach( function(follower){
-                        var avatarFollower = that.getGravatar(follower.email, 100);
-                        $("#follower"+follower.id).find(".avatar-img-follower").css("background", "url("+ avatarFollower+") no-repeat");
-                    });
+                            var avatar = that.getGravatar(user.email, 200);
+                            $(".avatar-img").css("background", "url("+ avatar+") center center no-repeat");
+
+                            user.following.forEach( function(follower){
+                                var avatarFollower = that.getGravatar(follower.email, 100);
+                                $("#follower"+follower._id).find(".avatar-img-follower").css("background", "url("+ avatarFollower+") no-repeat");
+                            });
 
 
-                    var view = new UserWatchlistView(user.id);
-                    that.$el.append(view.render());
+                            var view = new UserWatchlistView(user.id);
+                            that.$el.append(view.render());
+
+                }
+            });
+        },
+        addFollower: function(){
+            var that = this;
+            var follow = {id :this.user.id };
+
+            this.following.save(follow,{
+                type: "POST",
+                contentType: "application/json",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('Authorization', $.cookie('token'));
+                },
+                success: function(response){
+                    document.location.replace("index.html");
                 }
             });
         }
