@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'models/tokenInfo',
+    'awesomplete',
     'text!templates/menuTemplate.html'
-], function ($, _, Backbone, TokenInfo, menuTemplate) {
+], function ($, _, Backbone, TokenInfo, awesomplete, menuTemplate) {
     var AppView = Backbone.View.extend({
         template : _.template(menuTemplate),
         el: '.menu',
@@ -35,6 +36,10 @@ define([
     });
     return AppView;
 });
+
+var input = document.getElementById("srch-term");
+var awesomplete = new Awesomplete(input);
+awesomplete.list = ["Ada", "Java", "JavaScript", "Brainfuck", "LOLCODE", "Node.js", "Ruby on Rails"];
 
 function goToHome(){
     document.location.href="index.html";
