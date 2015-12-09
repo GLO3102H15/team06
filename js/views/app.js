@@ -52,10 +52,8 @@ define([
                     dataType:"JSONP",
                     success: function (response) {
                         that.list = [];
-                        response.forEach(function(result) {
-                            if(result.attributes.kind === "feature-movie")
+                        response.models.forEach(function(result) {
                                 that.list.push(result.attributes.trackName);
-                            if(result.attributes.kind === "tv-episode" || result.attributes.kind === "artist")
                                 that.list.push(result.attributes.artistName);
                         });
                         var uniqueArray = that.list.filter(function(elem, pos,arr) {
